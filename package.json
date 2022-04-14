@@ -1,0 +1,46 @@
+{
+  "name": "catalog-api",
+  "version": "1.0.0",
+  "description": "API for catalog enterprise.",
+  "main": "index.js",
+  "scripts": {
+    "build": "docker-compose --env-file .env up -d",
+    "down": "docker-compose --env-file .env down",
+    "lint": "eslint --ext .ts ./src",
+    "dev": "tsnd --respawn --transpile-only --inspect --ignore-watch node_modules ./src/index.ts",
+    "prod": "node ./dist/index.js"
+  },
+  "author": "JuninProg",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/jsonwebtoken": "^8.5.5",
+    "@types/node": "^16.10.3",
+    "@types/sharp": "^0.29.2",
+    "@types/uuid": "^8.3.1",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "eslint": "^8.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.4.1",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.4.3"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1004.0",
+    "axios": "^0.22.0",
+    "bcrypt": "^5.0.1",
+    "dotenv": "^10.0.0",
+    "fastify": "^3.22.0",
+    "fastify-cors": "^6.0.2",
+    "fastify-helmet": "^5.3.2",
+    "fastify-multipart": "^5.0.2",
+    "fastify-plugin": "^3.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "pg-promise": "^10.11.0",
+    "sharp": "^0.29.1",
+    "telefone": "^1.2.2",
+    "uuid": "^8.3.2"
+  }
+}

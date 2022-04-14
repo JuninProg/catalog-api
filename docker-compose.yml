@@ -1,0 +1,26 @@
+version: '3.5'
+
+services:
+  postgresql:
+    container_name: catalog_postgresql
+    image: kartoza/postgis:13.0
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_DB: ${DB_NAME}
+      PGDATA: /data/catalog/postgresql
+    volumes:
+      - ./src/migrations/catalogapp_db.sql:/docker-entrypoint-initdb.d/1-database.sql
+      - postgresql:/data/catalog/postgresql
+    ports:
+      - '${DB_PORT}:5432'
+    networks:
+      - catalog_net
+    restart: unless-stopped
+
+networks:
+  catalog_net:
+    driver: bridge
+
+volumes:
+  postgresql:
